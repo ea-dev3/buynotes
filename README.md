@@ -1,17 +1,19 @@
-This is a fork of https://github.com/gatsbyjs/gatsby-starter-default
+## Make JAMstack apps, not sites with Gatsby + Netlify Identity + Netlify Functions
 
-to make it easier to get started using Netlify Identity and Netlify Functions with Gatsby.
+This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows how to use Netlify Identity and Netlify Functions with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
 
-Basically these are the extra dependencies you want:
+You can clone and deploy this sample project with one click:
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/jamstack-hackathon-starter)
 
-- `netlify-lambda`
-- `netlify-identity-widget`
-- `http-proxy-middleware`
+Basically these are the extra dependencies it adds:
+
+- [`netlify-lambda`](https://github.com/netlify/netlify-lambda): For locally emulating Netlify Functions
+- `http-proxy-middleware`: For proxying netlify-lambda function calls to avoid CORS issues as [per the Gatsby docs](https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying)
+- [`netlify-identity-widget`](netlify-identity-widget): For adding
 
 Other useful resources/reference projects that may help you:
 
 - https://github.com/netlify/create-react-app-lambda
 - https://github.com/netlify/netlify-identity-widget/tree/master/example
-- [Gatsby docs on Proxying API requests in development](https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying)
 
 Please contact [@swyx](https://twitter.com/swyx) if you need more help with Netlify.
