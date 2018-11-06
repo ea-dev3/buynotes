@@ -11,6 +11,13 @@ Basically these are the extra dependencies it adds:
 - `http-proxy-middleware`: For proxying netlify-lambda function calls to avoid CORS issues as [per the Gatsby docs](https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying)
 - [`netlify-identity-widget`](netlify-identity-widget): For adding
 
+## Further Documentation in nested READMEs
+
+- please see the [src README](/src/README.md) for explanation on the layout
+- please see the [app README](/src/app/README.md) for explanation on the app
+
+## Other Resources
+
 Other useful resources/reference projects that may help you:
 
 - https://github.com/netlify/create-react-app-lambda
