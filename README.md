@@ -4,7 +4,7 @@ This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows
 
 ## 3 minute video walkthrough
 
-[![walkthru](https://img.youtube.com/vi/bueXJInQt2c/0.jpg)](https://www.youtube.com/watch?v=bueXJInQt2c)
+[![walkthru](https://img.youtube.com/vi/bueXJInQt2c/1.jpg)](https://www.youtube.com/watch?v=bueXJInQt2c)
 
 ## How to start
 
