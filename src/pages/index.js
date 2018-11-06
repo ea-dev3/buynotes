@@ -4,12 +4,11 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import Image from '../components/image'
 
-import netlifyIdentity from 'netlify-identity-widget'
 import { initAuth } from './app/services/auth'
 initAuth()
 
 class IndexPage extends React.Component {
-  state = { loading: false, msg: 'click the button and watch this!' }
+  state = { loading: false, msg: null }
   handleClick = e => {
     e.preventDefault()
 
@@ -23,26 +22,41 @@ class IndexPage extends React.Component {
     const { loading, msg } = this.state
     return (
       <Layout>
-        <h1>Hi people</h1>
-        <p>Welcome to your new Gatsby site with Netlify functions</p>
-        <button onClick={this.handleClick}>
-          {loading ? 'Loading...' : 'Call Lambda Function'}
-        </button>
-        <br />
-        <span>Here is the response: {msg}</span>
-        <hr />
-        <p>Now go build something great.</p>
-        <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-          <Image />
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
+        >
+          <div>
+            <p>Welcome to your new Gatsby site with Netlify functions</p>
+            <br />
+            <ul>
+              <li>
+                <Link to="/page-2/">Go to page 2</Link>
+              </li>
+              <li>
+                <Link to="/app/">Go to App (with Netlify Identity)</Link>
+              </li>
+            </ul>
+            <hr />
+            <button onClick={this.handleClick}>
+              {loading ? 'Loading...' : 'Call Lambda Function'}
+            </button>
+            <br />
+            <span>
+              {msg
+                ? 'Here is the response: ' + msg
+                : 'click the button and watch this!'}
+            </span>
+          </div>
+          <div>
+            <p>Now go build something great.</p>
+            <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
+              <Image />
+            </div>
+          </div>
         </div>
-        <ul>
-          <li>
-            <Link to="/page-2/">Go to page 2</Link>
-          </li>
-          <li>
-            <Link to="/app/">Go to App (with Authentication)</Link>
-          </li>
-        </ul>
       </Layout>
     )
   }
