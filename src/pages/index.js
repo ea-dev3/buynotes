@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import Image from '../components/image'
+import SEO from '../components/seo'
 
 import { initAuth } from '../app/services/auth'
 initAuth()
@@ -22,6 +23,7 @@ class IndexPage extends React.Component {
     const { loading, msg } = this.state
     return (
       <Layout>
+        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <div
           style={{
             display: 'flex',
@@ -40,8 +42,14 @@ class IndexPage extends React.Component {
               </li>
               <li>
                 It also has a dynamically generated clientside app guarded by
-                authentication:{' '}
-                <Link to="/app/">Go to App (with Netlify Identity)</Link>{' '}
+                authentication:
+                <ul>
+                  <li>
+                    <Link to="/app/">
+                      <b>Go to App (with Netlify Identity)</b>
+                    </Link>{' '}
+                  </li>
+                </ul>
               </li>
               <li>
                 You can{' '}
@@ -74,11 +82,11 @@ class IndexPage extends React.Component {
               {loading ? 'Loading...' : 'Call Lambda Function'}
             </button>
             <br />
-            <span>
+            <pre>
               {msg
                 ? 'Here is the response: ' + msg
                 : 'click the button and watch this!'}
-            </span>
+            </pre>
           </div>
           <div
             style={{

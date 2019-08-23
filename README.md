@@ -2,9 +2,23 @@
 
 This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows how to use Netlify Identity and Netlify Functions with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
 
+<marquee>
+  <a href="https://app.netlify.com/sites/jamstack-hackathon-starter/deploys">
+<img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/7be76523-4643-4ce9-a6fd-a103463b62f3/deploy-status" />
+  </a>
+</marquee>
+
+## May 2019 livestream
+
+You may not need this starter repo! [Learn how to add Netlify Identity and Functions to your own existing Gatsby project](https://www.youtube.com/watch?v=vrSoLMmQ46k&feature=youtu.be).
+
 ## 3 minute video walkthrough
 
 [![walkthru](https://img.youtube.com/vi/bueXJInQt2c/1.jpg)](https://www.youtube.com/watch?v=bueXJInQt2c)
+
+## Make your own from scratch!
+
+Check our post on the Gatsby blog: [Turning the Static Dynamic: Gatsby + Netlify Functions + Netlify Identity](https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/)
 
 ## How to start
 
