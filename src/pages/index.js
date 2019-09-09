@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react"
+import { Link } from "gatsby"
 
-import Layout from '../components/layout'
-import Image from '../components/image'
-import SEO from '../components/seo'
+import Layout from "../components/layout"
+import Image from "../components/image"
+import SEO from "../components/seo"
 
-import { initAuth } from '../app/services/auth'
+import { initAuth } from "../app/services/auth"
 initAuth()
 
 class IndexPage extends React.Component {
@@ -14,7 +14,7 @@ class IndexPage extends React.Component {
     e.preventDefault()
 
     this.setState({ loading: true })
-    fetch('/.netlify/functions/hello')
+    fetch("/.netlify/functions/hello")
       .then(response => response.json())
       .then(json => this.setState({ loading: false, msg: json.msg }))
   }
@@ -26,8 +26,8 @@ class IndexPage extends React.Component {
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <div
           style={{
-            display: 'flex',
-            justifyContent: 'space-between',
+            display: "flex",
+            justifyContent: "space-between",
           }}
         >
           <div>
@@ -38,7 +38,7 @@ class IndexPage extends React.Component {
             <ul>
               <li>
                 This site has statically generated marketing pages like this one
-                and <Link to="/page-2/">page 2.</Link>{' '}
+                and <Link to="/page-2/">page 2.</Link>{" "}
               </li>
               <li>
                 It also has a dynamically generated clientside app guarded by
@@ -47,18 +47,18 @@ class IndexPage extends React.Component {
                   <li>
                     <Link to="/app/">
                       <b>Go to App (with Netlify Identity)</b>
-                    </Link>{' '}
+                    </Link>{" "}
                   </li>
                 </ul>
               </li>
               <li>
-                You can{' '}
+                You can{" "}
                 <a href="https://github.com/sw-yx/jamstack-hackathon-starter">
                   view source here
                 </a>
               </li>
               <li>
-                or see{' '}
+                or see{" "}
                 <a href="https://youtu.be/bueXJInQt2c">
                   the Youtube walkthrough
                 </a>
@@ -76,27 +76,27 @@ class IndexPage extends React.Component {
             <hr />
             <p>
               You can still access Netlify functions even on static "marketing
-              pages":{' '}
+              pages":{" "}
             </p>
             <button onClick={this.handleClick}>
-              {loading ? 'Loading...' : 'Call Lambda Function'}
+              {loading ? "Loading..." : "Call Lambda Function"}
             </button>
             <br />
             <pre>
               {msg
-                ? 'Here is the response: ' + msg
-                : 'click the button and watch this!'}
+                ? "Here is the response: " + msg
+                : "click the button and watch this!"}
             </pre>
           </div>
           <div
             style={{
-              borderLeft: 'brown',
-              borderLeftStyle: 'dashed',
-              paddingLeft: '3rem',
+              borderLeft: "brown",
+              borderLeftStyle: "dashed",
+              paddingLeft: "3rem",
             }}
           >
             <p>Now go build something great.</p>
-            <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
+            <div style={{ maxWidth: "300px", marginBottom: "1.45rem" }}>
               <Image />
             </div>
           </div>
