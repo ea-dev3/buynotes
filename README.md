@@ -60,7 +60,7 @@ You can read the [Netlify Dev docs](https://github.com/netlify/cli/blob/master/d
 
 ## Enabling Netlify Identity
 
-If you are not using the **Deploy to Netlify** button (which has the `&stack=cms` parameter that automatically sets it up for you), you will have to enable Netlify Identity manually yourself. Just head to `https://app.netlify.com/sites/YOUR_SITE_HERE/identity` and enable it, so that your `netlify-identity-widget` works.
+If you are not using the [**Deploy to Netlify**](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/jamstack-hackathon-starter&stack=cms) button (which has the `&stack=cms` query param at the end that automatically sets Netlify Identity up for you), you will have to enable Netlify Identity manually yourself. Just head to `https://app.netlify.com/sites/YOUR_SITE_HERE/identity` and enable it, so that your `netlify-identity-widget` works.
 
 ## Further Documentation in nested READMEs
 
