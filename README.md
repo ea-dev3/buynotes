@@ -1,4 +1,4 @@
-## Make JAMstack apps, not sites with Gatsby + Netlify Identity + Netlify Functions
+## Make Authenticated, Serverless, Dynamic Clientside JAMstack apps with Gatsby + Netlify Dev (Functions + Identity)!
 
 <marquee>
   <a href="https://app.netlify.com/sites/jamstack-hackathon-starter/deploys">
@@ -6,7 +6,7 @@
   </a>
 </marquee>
 
-This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows how to use Netlify Identity and Netlify Functions with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
+This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows how to use Netlify Identity and Netlify Functions (via [Netlify Dev](https://github.com/netlify/cli/blob/master/docs/netlify-dev.md)) with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
 
 Features:
 
