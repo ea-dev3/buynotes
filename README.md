@@ -10,7 +10,7 @@ This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows
 
 ## May 2019 livestream
 
-You may not need this starter repo! [Learn how to add Netlify Identity and Functions to your own existing Gatsby project](https://www.youtube.com/watch?v=vrSoLMmQ46k&feature=youtu.be).
+You may not need this starter repo! [Learn how to add Netlify Identity and Functions to your own existing Gatsby project](https://www.youtube.com/watch?v=vrSoLMmQ46k&feature=youtu.be). Note: this doesn't include Netlify Dev
 
 ## 3 minute video walkthrough
 
@@ -28,8 +28,26 @@ You can clone and deploy this sample project with one click:
 Basically these are the extra dependencies it adds:
 
 - [`netlify-lambda`](https://github.com/netlify/netlify-lambda): For locally emulating Netlify Functions
-- `http-proxy-middleware`: For proxying netlify-lambda function calls to avoid CORS issues as [per the Gatsby docs](https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying)
-- [`netlify-identity-widget`](netlify-identity-widget): For adding
+- [`react-netlify-identity-widget`](netlify-identity-widget): For adding
+
+For local development, first make sure you have Netlify CLI:
+
+```bash
+npm i -g netlify-cli
+
+## if you are totally new, you will probably need to log in, e.g.
+netlify login
+```
+
+And then you can run this project with:
+
+```bash
+netlify dev # or ntl dev
+```
+
+This starts up both the Gatsby server (at port 8000) and a functions server (at a randomly selected port) and proxies them for you to a new port (usually port 8888). So make sure you go to `http://localhost:8888` to have the project work
+
+You can read the [Netlify Dev docs](https://github.com/netlify/cli/blob/master/docs/netlify-dev.md) for more info.
 
 ## Enabling Netlify Identity
 

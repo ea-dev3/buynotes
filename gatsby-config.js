@@ -1,24 +1,27 @@
-var proxy = require('http-proxy-middleware')
+// TODO: dear user, please change this to your own instance
+const netlifyInstance = "https://jamstack-hackathon-starter.netlify.com"
+if (netlifyInstance === "https://jamstack-hackathon-starter.netlify.com") {
+  console.warn(`
+
+**************************
+WARNING: currently using Netlify Identity of https://jamstack-hackathon-starter.netlify.com
+
+this is only meant for the working demo. if you forked or copied this code, you won't have access to this netlify identity instance
+
+Go to your site, enable Netlify Identity, and paste that string here
+
+
+More docs: https://www.netlify.com/docs/identity/
+
+**************************
+`)
+}
 
 module.exports = {
   siteMetadata: {
-    title: 'JAMstack Hackathon Starter',
+    title: "JAMstack Hackathon Starter",
     description: `Kick off your next, great Gatsby app.`,
     author: `@swyx`,
-  },
-
-  // for avoiding CORS while developing Netlify Functions locally
-  // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
-  developMiddleware: app => {
-    app.use(
-      '/.netlify/functions/',
-      proxy({
-        target: 'http://localhost:9000',
-        pathRewrite: {
-          '/.netlify/functions/': '',
-        },
-      })
-    )
   },
 
   plugins: [
@@ -26,6 +29,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/app/*`] },
+    },
+    {
+      resolve: `gatsby-plugin-netlify-identity`,
+      options: {
+        url: netlifyInstance,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,

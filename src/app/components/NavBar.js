@@ -1,27 +1,26 @@
-import React from 'react'
-import { Link, navigate } from 'gatsby'
-import { getUser, isLoggedIn, logout } from '../services/auth'
+import React from "react"
+import { Link, navigate } from "gatsby"
+
+import { useIdentityContext } from "react-netlify-identity-widget"
+import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
 
 export default () => {
-  const content = { message: '', login: true }
-  const user = getUser()
-  if (isLoggedIn()) {
-    content.message = `Hello, ${user.user_metadata &&
-      user.user_metadata.full_name}`
-  } else {
-    content.message = 'You are not logged in'
-  }
+  const { user, isLoggedIn, logoutUser } = useIdentityContext()
+  let message = isLoggedIn
+    ? `Hello, ${user.user_metadata && user.user_metadata.full_name}`
+    : "You are not logged in"
+
   return (
     <div
       style={{
-        display: 'flex',
-        flex: '1',
-        justifyContent: 'space-between',
-        borderBottom: '1px solid #d1c1e0',
-        backgroundColor: 'aliceblue',
+        display: "flex",
+        flex: "1",
+        justifyContent: "space-between",
+        borderBottom: "1px solid #d1c1e0",
+        backgroundColor: "aliceblue",
       }}
     >
-      <span>{content.message}</span>
+      <span>{message}</span>
 
       <nav>
         <span>Navigate the app: </span>
@@ -29,12 +28,13 @@ export default () => {
         {` `}
         <Link to="/app/profile">Profile</Link>
         {` `}
-        {isLoggedIn() ? (
+        {isLoggedIn ? (
           <a
             href="/"
-            onClick={event => {
+            onClick={async event => {
               event.preventDefault()
-              logout(() => navigate(`/app/login`))
+              await logoutUser()
+              navigate(`/app/login`)
             }}
           >
             Logout
