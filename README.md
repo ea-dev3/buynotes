@@ -10,11 +10,12 @@ This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows
 
 Features:
 
-- ✅Serverless Functions
-- ✅Authentication (with Netlify Identity)
-- ✅Authenticated Serverless Functions
-- ✅Protected Routes
-- ✅Dynamic Clientside Pages in Gatsby (enabling all the above)
+- 🚋Serverless Functions
+- 🔏Authentication (with Netlify Identity)
+- 🔐Authenticated Serverless Functions
+- 😻External Provider login with GitHub, Bitbucket, Google, etc.
+- 🏠Protected Routes
+- 👋🏼Dynamic Clientside Pages in Gatsby (enabling all the above)
 
 ## 3 minute video walkthrough of this starter
 
