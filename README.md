@@ -16,6 +16,7 @@ Features:
 - 😻External Provider login with GitHub, Bitbucket, Google, etc.
 - 🏠Protected Routes
 - 👋🏼Dynamic Clientside Pages in Gatsby (enabling all the above)
+- 🕵🏼‍♂️Hide API Secrets from being exposed to Frontend
 
 ## 3 minute video walkthrough of this starter
 
@@ -37,7 +38,7 @@ You can clone and deploy this sample project with one click:
 
 Basically these are the extra dependencies it adds:
 
-- (TODO) [`netlify-lambda`](https://github.com/netlify/netlify-lambda): For locally emulating Netlify Functions
+- [`netlify-lambda`](https://github.com/netlify/netlify-lambda): For installing dependencies of Netlify Functions when deploying
 - [`react-netlify-identity-widget`](https://github.com/sw-yx/react-netlify-identity-widget): For adding Netlify Identity authentication easily on any React site
 
 For local development, first make sure you have Netlify CLI:
