@@ -2,7 +2,6 @@ import React from "react"
 import { Link, navigate } from "gatsby"
 
 import { useIdentityContext } from "react-netlify-identity-widget"
-import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
 
 export default () => {
   const { user, isLoggedIn, logoutUser } = useIdentityContext()
