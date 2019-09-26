@@ -30,6 +30,7 @@ You may not need this starter repo! Learn how to add Netlify Identity and Functi
 
 - [May 2019 livestream](https://www.youtube.com/watch?v=vrSoLMmQ46k&feature=youtu.be) Note: this doesn't include Netlify Dev.
 - Check our post on the Gatsby blog: [Turning the Static Dynamic: Gatsby + Netlify Functions + Netlify Identity](https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/)
+- [FreeCodeCamp Guide: How to Build Authenticated Serverless JAMstack Apps with Gatsby and Netlify](https://www.freecodecamp.org/news/building-jamstack-apps/)
 
 ## How to start
 
