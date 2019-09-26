@@ -1,12 +1,12 @@
 ## Make Authenticated, Serverless, Dynamic Clientside JAMstack apps with Gatsby + Netlify Dev (Functions + Identity)!
 
 <marquee>
-  <a href="https://app.netlify.com/sites/jamstack-hackathon-starter/deploys">
-<img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/7be76523-4643-4ce9-a6fd-a103463b62f3/deploy-status" />
+  <a href="https://app.netlify.com/sites/jamstack-hackathon-starter/deploys?utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex">
+<img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/7be76523-4643-4ce9-a6fd-a103463b62f3/deploy-status?utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex" />
   </a>
 </marquee>
 
-This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows how to use Netlify Identity and Netlify Functions (via [Netlify Dev](https://github.com/netlify/cli/blob/master/docs/netlify-dev.md)) with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
+This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows how to use Netlify Identity and Netlify Functions (via [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex)) with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
 
 Features:
 
@@ -34,7 +34,7 @@ You may not need this starter repo! Learn how to add Netlify Identity and Functi
 ## How to start
 
 You can clone and deploy this sample project with one click:
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/jamstack-hackathon-starter&stack=cms)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/jamstack-hackathon-starter&stack=cms&utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex)
 
 Basically these are the extra dependencies it adds:
 
@@ -58,11 +58,11 @@ netlify dev # or ntl dev
 
 This starts up both the Gatsby server (at port 8000) and a functions server (at a randomly selected port) and proxies them for you to a new port (usually port 8888). So make sure you go to `http://localhost:8888` to have the project work
 
-You can read the [Netlify Dev docs](https://github.com/netlify/cli/blob/master/docs/netlify-dev.md) for more info.
+You can read the [Netlify Dev docs](https://www.netlify.com/docs/cli/?utm_source=github&utm_medium=swyx-jamstack&utm_campaign=devex#netlify-dev-beta) for more info.
 
 ## Enabling Netlify Identity
 
-If you are not using the [**Deploy to Netlify**](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/jamstack-hackathon-starter&stack=cms) button (which has the `&stack=cms` query param at the end that automatically sets Netlify Identity up for you), you will have to enable Netlify Identity manually yourself. Just head to `https://app.netlify.com/sites/YOUR_SITE_HERE/identity` and enable it, so that your `netlify-identity-widget` works.
+If you are not using the [**Deploy to Netlify**](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/jamstack-hackathon-starter&stack=cms&utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex) button (which has the `&stack=cms` query param at the end that automatically sets Netlify Identity up for you), you will have to enable Netlify Identity manually yourself. Just head to `https://app.netlify.com/sites/YOUR_SITE_HERE/identity` and enable it, so that your `netlify-identity-widget` works.
 
 ## Further Documentation in nested READMEs
 
