@@ -1,10 +1,16 @@
 ## Make Authenticated, Serverless, Dynamic Clientside JAMstack apps with Gatsby + Netlify Dev (Functions + Identity)!
 
 <marquee>
+  <div>
   <a href="https://app.netlify.com/sites/jamstack-hackathon-starter/deploys?utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex">
 <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/7be76523-4643-4ce9-a6fd-a103463b62f3/deploy-status?utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex" />
   </a>
+    <a href="https://gitpod.io/from-referrer/" style="margin-left:600px;">
+    <img alt="Open Gitpod" src="https://img.shields.io/badge/gitpod-ready-blue?logo=gitpod" />
+    </a>
+  </div>
 </marquee>
+
 
 This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows how to use Netlify Identity and Netlify Functions (via [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex)) with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
 
@@ -36,6 +42,9 @@ You may not need this starter repo! Learn how to add Netlify Identity and Functi
 
 You can clone and deploy this sample project with one click:
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/jamstack-hackathon-starter&stack=cms&utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex)
+
+For development you can clone and open this project with another click: 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 Basically these are the extra dependencies it adds:
 
