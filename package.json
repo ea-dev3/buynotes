@@ -1,0 +1,51 @@
+{
+  "name": "jamstack-hackathon-starter",
+  "description": "Make Authenticated, Serverless, Dynamic Clientside JAMstack apps with Gatsby + Netlify (Functions + Identity)",
+  "version": "2.0.0",
+  "author": "swyx <swyx@dontemailme.com>",
+  "dependencies": {
+    "@reach/dialog": "^0.2.9",
+    "@reach/tabs": "^0.1.6",
+    "@reach/visually-hidden": "^0.1.4",
+    "gatsby": "^2.15.11",
+    "gatsby-image": "^2.2.17",
+    "gatsby-plugin-create-client-paths": "^2.1.6",
+    "gatsby-plugin-manifest": "^2.2.15",
+    "gatsby-plugin-netlify-identity": "^0.0.3",
+    "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-react-helmet": "^3.1.6",
+    "gatsby-plugin-sharp": "^2.2.20",
+    "gatsby-source-filesystem": "^2.1.21",
+    "gatsby-transformer-sharp": "^2.2.13",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-netlify-identity-widget": "^0.2.5"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "netlify-lambda install",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "devDependencies": {
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "netlify-lambda": "^1.6.3",
+    "prettier": "^1.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sw-yx/jamstack-hackathon-starter"
+  },
+  "bugs": {
+    "url": "https://github.com/sw-yx/jamstack-hackathon-starter/issues"
+  }
+}
