@@ -1,6 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby"
-import { IonButton, IonIcon, IonContent, IonImg } from "@ionic/react"
+
 import LoginSvg from "../images/login.svg"
 
 import {
@@ -14,15 +14,8 @@ function Login() {
   const [dialog, setDialog] = React.useState(false)
   return (
     <>
-      <IonImg src={LoginSvg}></IonImg>
-      <IonButton
-        size="small"
-        expand="full"
-        fiil="clear"
-        onClick={() => setDialog(true)}
-      >
-        Log In
-      </IonButton>
+      <img src={LoginSvg}></img>
+      <button onClick={() => setDialog(true)}>Log In</button>
 
       <IdentityModal
         showDialog={dialog}

@@ -4,8 +4,6 @@
   "version": "1.0.0",
   "author": "Eugene Alex ",
   "dependencies": {
-    "@ionic/react": "^4.11.9",
-    "@ionic/react-router": "^4.11.9",
     "@reach/dialog": "^0.2.9",
     "@reach/tabs": "^0.1.6",
     "@reach/visually-hidden": "^0.1.4",

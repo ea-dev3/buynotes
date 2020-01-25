@@ -1,19 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import {
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonContent,
-  IonCard,
-  IonCardSubtitle,
-  IonCardHeader,
-  IonCardContent,
-  IonButton,
-  IonImg,
-  IonCardTitle,
-  IonLabel,
-} from "@ionic/react"
+
 import AppSvg from "../images/app.svg"
 import AboutSvg from "../images/about.svg"
 
@@ -37,40 +24,20 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <IonGrid>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              height: 100,
-            }}
-          >
-            <div>
-              <IonRow>
-                <IonCol size="12">
-                  <IonCard>
-                    <IonCardHeader>
-                      <IonCardSubtitle>
-                        <Link to="/app/"> App</Link>{" "}
-                      </IonCardSubtitle>
-                    </IonCardHeader>
-                    <IonImg src={AppSvg} width="200" height="200" />
-                  </IonCard>
-                </IonCol>
 
-                <IonCol size="12">
-                  <IonCard>
-                    <IonCardHeader>
-                      <IonCardSubtitle>
-                        <Link to="/page-2/"> About</Link>{" "}
-                      </IonCardSubtitle>
-                    </IonCardHeader>
-                    <IonImg src={AboutSvg} width="200" height="200" />
-                  </IonCard>
-                </IonCol>
-              </IonRow>
-
-              {/**
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            height: 100,
+          }}
+        >
+          <div>
+            <Link to="/app/"> App</Link>{" "}
+            <img src={AppSvg} width="200" height="200" />
+            <Link to="/page-2/"> About</Link>{" "}
+            <img src={AboutSvg} width="200" height="200" />
+            {/**
             <hr />
             <p>
             <a href="/.netlify/functions/token-hider">
@@ -91,9 +58,8 @@ class IndexPage extends React.Component {
                 <pre>"Click the button and watch this!"</pre>
                 )}
               */}
-            </div>
           </div>
-        </IonGrid>
+        </div>
       </Layout>
     )
   }
