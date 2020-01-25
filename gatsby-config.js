@@ -1,6 +1,6 @@
 // TODO: dear user, please change this to your own instance
-const netlifyInstance = "https://jamstack-hackathon-starter.netlify.com"
-if (netlifyInstance === "https://jamstack-hackathon-starter.netlify.com") {
+const netlifyInstance = "https://buynotes.netlify.com"
+if (netlifyInstance === "https://buynotes.netlify.com/") {
   console.warn(`
 
 **************************
@@ -19,9 +19,9 @@ More docs: https://www.netlify.com/docs/identity/
 
 module.exports = {
   siteMetadata: {
-    title: "JAMstack Hackathon Starter",
-    description: `Kick off your next, great Gatsby app.`,
-    author: `@swyx`,
+    title: "Buy Notes",
+    description: `Publish your notes and make money when comrades buy your notes`,
+    author: `Eugene Alex`,
   },
 
   plugins: [
@@ -57,6 +57,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-svgr-svgo`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

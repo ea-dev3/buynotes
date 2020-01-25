@@ -9,16 +9,18 @@ import Login from "./login"
 
 const App = () => {
   return (
-    <Layout>
-      <NavBar />
-      <Router>
-        <PrivateRoute path="/app/profile" component={Profile} />
-        <PublicRoute path="/app">
-          <PrivateRoute path="/" component={Main} />
-          <Login path="/login" />
-        </PublicRoute>
-      </Router>
-    </Layout>
+    <>
+      <Layout>
+        <NavBar />
+        <Router>
+          <PrivateRoute path="/app/profile" component={Profile} />
+          <PublicRoute path="/app">
+            <PrivateRoute path="/" component={Main} />
+            <Login path="/login" />
+          </PublicRoute>
+        </Router>
+      </Layout>
+    </>
   )
 }
 function PublicRoute(props) {
