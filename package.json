@@ -6,6 +6,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.5.1",
+    "@material-ui/styles": "^4.9.0",
     "@reach/dialog": "^0.2.9",
     "@reach/tabs": "^0.1.6",
     "@reach/visually-hidden": "^0.1.4",
@@ -14,6 +15,7 @@
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-create-client-paths": "^2.1.6",
     "gatsby-plugin-manifest": "^2.2.15",
+    "gatsby-plugin-material-ui": "^2.1.6",
     "gatsby-plugin-netlify-identity": "^0.0.3",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.1.6",

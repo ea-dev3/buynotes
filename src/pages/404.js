@@ -9,7 +9,7 @@ const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
 
-    <img src={NotFoundSvg} />
+    <img src={NotFoundSvg} alt="404" />
   </Layout>
 )
 

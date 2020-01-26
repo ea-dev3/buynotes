@@ -2,6 +2,9 @@ import React from "react"
 
 import { useIdentityContext } from "react-netlify-identity-widget"
 
+import CardButton from "./components/CardButton"
+import AppSvg from "../images/construction.svg"
+
 function Main() {
   const [data, setData] = React.useState(null)
   const [loading, setLoading] = React.useState(false)
@@ -35,6 +38,10 @@ function Main() {
 
   return (
     <>
+      <CardButton route="Note" src={AppSvg} link="/" />
+
+      {/**
+     * 
       <h1>Your Main App</h1>
       <ul>
         <li>API: {user.api && user.api.apiURL}</li>
@@ -47,6 +54,7 @@ function Main() {
       </button>
       {err && <pre>{JSON.stringify(err, null, 2)}</pre>}
       <pre>{JSON.stringify(data, null, 2)}</pre>
+     */}
     </>
   )
 }

@@ -13,6 +13,7 @@ const App = () => {
       <Layout>
         <NavBar />
         <Router>
+          {/** change this */}
           <PrivateRoute path="/app/profile" component={Profile} />
           <PublicRoute path="/app">
             <PrivateRoute path="/" component={Main} />

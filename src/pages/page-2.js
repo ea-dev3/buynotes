@@ -14,7 +14,7 @@ const SecondPage = () => (
   <Layout>
     <SEO title="Page two" />
 
-    <img src={Construction} />
+    <img src={Construction} alt="about" />
     <IconButton edge="start">
       <Link to="/">
         <MenuIcon color="primary" />
