@@ -4,13 +4,22 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import Construction from "../images/construction.svg"
+
+// Material Ui
+import IconButton from "@material-ui/core/IconButton"
+import MenuIcon from "@material-ui/icons/HomeWork"
+
 const SecondPage = () => (
   <Layout>
     <SEO title="Page two" />
 
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <img src={Construction} />
+    <IconButton edge="start">
+      <Link to="/">
+        <MenuIcon color="primary" />
+      </Link>
+    </IconButton>
   </Layout>
 )
 

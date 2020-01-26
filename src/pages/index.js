@@ -8,6 +8,12 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
+// Material Ui
+import { makeStyles } from "@material-ui/core/styles"
+import Grid from "@material-ui/core/Grid"
+
+import CardButton from "../app/components/CardButton"
+
 class IndexPage extends React.Component {
   state = { loading: false, msg: null }
   handleClick = e => {
@@ -21,23 +27,31 @@ class IndexPage extends React.Component {
 
   render() {
     const { loading, msg } = this.state
+
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            height: 100,
-          }}
-        >
+        <div>
+          <Grid container spacing={0}>
+            <Grid item xs={12} sm={6}>
+              <CardButton route="App" src={AppSvg} link="/app/" />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <CardButton route="About" src={AboutSvg} link="/page-2/" />
+            </Grid>
+          </Grid>
           <div>
-            <Link to="/app/"> App</Link>{" "}
-            <img src={AppSvg} width="200" height="200" />
-            <Link to="/page-2/"> About</Link>{" "}
-            <img src={AboutSvg} width="200" height="200" />
             {/**
+            <div>
+              <Link to="/app/"> App</Link>{" "}
+              <img src={AppSvg} width="25%" height="25%" />
+            </div>
+            <div>
+              <Link to="/page-2/"> About</Link>{" "}
+              <img src={AboutSvg} width="200" height="200" />
+            </div>
             <hr />
             <p>
             <a href="/.netlify/functions/token-hider">
