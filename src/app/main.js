@@ -2,8 +2,9 @@ import React from "react"
 
 import { useIdentityContext } from "react-netlify-identity-widget"
 
-import CardButton from "./components/CardButton"
-import AppSvg from "../images/construction.svg"
+import NoteCard from "./components/NoteCard"
+import AccountingSvg from "../images/accounting.svg"
+import EconomicsSvg from "../images/economics.svg"
 
 function Main() {
   const [data, setData] = React.useState(null)
@@ -38,7 +39,19 @@ function Main() {
 
   return (
     <>
-      <CardButton route="Note" src={AppSvg} link="/" />
+      <NoteCard
+        title="Introduction to Accounting"
+        chapters="14"
+        src={AccountingSvg}
+        link="/"
+      />
+
+      <NoteCard
+        title="Introduction to Microeconomics"
+        chapters="17"
+        src={EconomicsSvg}
+        link="/"
+      />
 
       {/**
      * 

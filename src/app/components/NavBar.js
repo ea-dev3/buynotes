@@ -54,6 +54,7 @@ export default () => {
           aria-label="outlined primary button group"
           variant="contained"
           className={classes.ButtonGroup}
+          size="small"
         >
           <Button>
             <Link className={classes.button} to="/app/">
@@ -81,7 +82,7 @@ export default () => {
                 }}
               >
                 <LogOutIcon fontSize="inherit" />
-                Logout
+                Out
               </a>
             ) : (
               <Link className={classes.button} to="/app/login">

@@ -4,6 +4,11 @@ import React from "react"
 import Badge from "@material-ui/core/Badge"
 import Avatar from "@material-ui/core/Avatar"
 import { makeStyles, withStyles } from "@material-ui/core/styles"
+import Paper from "@material-ui/core/Paper"
+import Chip from "@material-ui/core/Chip"
+import SchoolIcon from "@material-ui/icons/SchoolOutlined"
+
+import SchoolSvg from "../images/school.svg"
 
 import { useIdentityContext } from "react-netlify-identity-widget"
 
@@ -36,20 +41,21 @@ const StyledBadge = withStyles(theme => ({
   },
 }))(Badge)
 
-const SmallAvatar = withStyles(theme => ({
-  root: {
-    width: 22,
-    height: 22,
-    border: `2px solid ${theme.palette.background.paper}`,
-  },
-}))(Avatar)
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     "& > *": {
       margin: theme.spacing(1),
     },
+  },
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  chip: {
+    margin: theme.spacing(0.5),
   },
 }))
 
@@ -58,21 +64,27 @@ const Profile = () => {
   const classes = useStyles()
   return (
     <>
-      <div className={classes.root}>
-        <StyledBadge
-          overlap="circle"
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
-          }}
-          variant="dot"
-        >
-          <Avatar alt="Remy Sharp" src="../images/gatsby-astronaut.png" />
-        </StyledBadge>
-      </div>
-
-      <h3>Name: {user.user_metadata && user.user_metadata.full_name}</h3>
-      <h3>E-mail: {user.email}</h3>
+      <Paper variant="outlined" elevation={3} className={classes.container}>
+        <div className={classes.container}>
+          <div className={classes.root}>
+            <StyledBadge
+              overlap="circle"
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              variant="dot"
+            >
+              <Avatar
+                alt={user.user_metadata && user.user_metadata.full_name}
+                src="../images/gatsby-astronaut.png"
+              />
+            </StyledBadge>
+          </div>
+          <h6> {user.user_metadata && user.user_metadata.full_name}</h6>
+        </div>
+        <img src={SchoolSvg} height="50%" width="50%"></img>
+      </Paper>
     </>
   )
 }
