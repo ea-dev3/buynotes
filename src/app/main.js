@@ -3,6 +3,7 @@ import React from "react"
 import { useIdentityContext } from "react-netlify-identity-widget"
 
 import NoteCard from "./components/NoteCard"
+import NotesPage from "./notes"
 import AccountingSvg from "../images/accounting.svg"
 import EconomicsSvg from "../images/economics.svg"
 
@@ -39,19 +40,7 @@ function Main() {
 
   return (
     <>
-      <NoteCard
-        title="Introduction to Accounting"
-        chapters="14"
-        src={AccountingSvg}
-        link="/"
-      />
-
-      <NoteCard
-        title="Introduction to Microeconomics"
-        chapters="17"
-        src={EconomicsSvg}
-        link="/"
-      />
+      <NotesPage />
 
       {/**
      * 

@@ -20,7 +20,7 @@ More docs: https://www.netlify.com/docs/identity/
 module.exports = {
   siteMetadata: {
     title: "Buy Notes",
-    description: `Publish your notes and make money when comrades buy your notes`,
+    description: `Access simplified notes, examples, exercises and test papers`,
     author: `Eugene Alex`,
   },
 
@@ -37,15 +37,38 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-theme-netlify-cms",
+      options: {
+        publicPath: "admin",
+        htmlTitle: "Notes Manager",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
     },
+
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/notes`,
+        name: `notes`,
+      },
+    },
+
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-material-ui`,
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
