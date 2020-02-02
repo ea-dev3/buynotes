@@ -65,6 +65,46 @@ module.exports = {
       },
     },
 
+    {
+      resolve: "gatsby-plugin-flexsearch",
+      options: {
+        languages: ["en"],
+        type: "MarkdownRemark",
+        fields: [
+          {
+            name: "title",
+            indexed: true,
+            resolver: "frontmatter.title",
+            attributes: {
+              encode: "balance",
+              tokenize: "strict",
+              threshold: 6,
+              depth: 3,
+            },
+            store: true,
+          },
+          {
+            name: "description",
+            indexed: true,
+            resolver: "frontmatter.description",
+            attributes: {
+              encode: "balance",
+              tokenize: "strict",
+              threshold: 6,
+              depth: 3,
+            },
+            store: false,
+          },
+          {
+            name: "url",
+            indexed: false,
+            resolver: "fields.slug",
+            store: true,
+          },
+        ],
+      },
+    },
+
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-material-ui`,

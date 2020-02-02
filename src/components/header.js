@@ -12,6 +12,7 @@ import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/BookOutlined"
 
 import LogoSvg from "../images/logo.svg"
+import Search from "../app/components/Search"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,6 +62,7 @@ const Header = ({ siteTitle }) => {
               </Link>
             </Typography>
           </Toolbar>
+          <Search />
         </AppBar>
       </div>
     </>
