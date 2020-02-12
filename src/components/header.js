@@ -14,6 +14,11 @@ import MenuIcon from "@material-ui/icons/BookOutlined"
 import LogoSvg from "../images/logo.svg"
 import Search from "../app/components/Search"
 
+// import Search from "../app/components/search"
+
+import algoliasearch from "algoliasearch/lite"
+import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,

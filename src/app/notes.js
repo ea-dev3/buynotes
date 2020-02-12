@@ -19,7 +19,6 @@ export default () => (
             excerpt(pruneLength: 250)
             frontmatter {
               title
-              date
             }
             fields {
               slug

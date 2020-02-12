@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 
 import AppSvg from "../images/app.svg"
 import AboutSvg from "../images/about.svg"
+import EarnCashSvg from "../images/cash.svg"
+import AdsSvg from "../images/sponser-ads.svg"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -39,7 +41,19 @@ class IndexPage extends React.Component {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <CardButton route="About" src={AboutSvg} link="/page-2/" />
+              <CardButton route="About" src={AboutSvg} link="/about/" />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <CardButton
+                route="Earn Cash"
+                src={EarnCashSvg}
+                link="/earn-cash/"
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <CardButton route="Ad" src={AdsSvg} link="/ads/" />
             </Grid>
           </Grid>
           <div>

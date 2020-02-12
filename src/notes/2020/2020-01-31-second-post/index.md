@@ -2,12 +2,9 @@
 title: Introduction to Macroeconomics
 date: 2020-01-31
 published: true
+tag: macroeconomics
 ---
 
-This is my second note!
+#### h2 People of earth
 
-#### h4 People of earth
-
-##### h5 Heading
-
-###### h6 Heading
+###### h6 Notes coming soon

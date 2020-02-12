@@ -17,6 +17,43 @@ More docs: https://www.netlify.com/docs/identity/
 `)
 }
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const myQuery = `{
+  allSitePage {
+    edges {
+      node {
+        # try to find a unique id for each node
+        # if this field is absent, it's going to
+        # be inserted by Algolia automatically
+        # and will be less simple to update etc.
+        objectID: id
+        component
+        path
+        componentChunkName
+        internal {
+          type
+          contentDigest
+          owner
+        }
+      }
+    }
+  }
+}`
+
+const queries = [
+  {
+    query: myQuery,
+    transformer: ({ data }) => data.allSitePage.edges.map(({ node }) => node), // optional
+    indexName: "index name to target", // overrides main index name, optional
+    settings: {
+      // optional, any index settings
+    },
+  },
+]
+
 module.exports = {
   siteMetadata: {
     title: "Buy Notes",
@@ -107,8 +144,70 @@ module.exports = {
 
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 650,
+              tracedSVG: true,
+              loading: "lazy",
+              disableBgImageOnAlpha: true,
+              wrapperStyle: fluidResult =>
+                `flex:${_.round(fluidResult.aspectRatio, 2)};`,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-material-ui`,
+    `gatsby-plugin-theme-ui`,
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-scroll-reveal`,
+
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        threshold: 1, // Percentage of an element's area that needs to be visible to launch animation
+        once: true, // Defines if animation needs to be launched once
+        disable: false, // Flag for disabling animations
+
+        // Advanced Options
+        selector: "[data-sal]", // Selector of the elements to be animated
+        animateClassName: "sal-animate", // Class name which triggers animation
+        disabledClassName: "sal-disabled", // Class name which defines the disabled state
+        rootMargin: "0% 50%", // Corresponds to root's bounding box margin
+        enterEventName: "sal:in", // Enter event name
+        exitEventName: "sal:out", // Exit event name
+      },
+    },
+
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        queries,
+        chunkSize: 10000, // default: 1000
+      },
+    },
+
+    {
+      resolve: `gatsby-theme-medium`,
+      options: {
+        // basePath defaults to `/`
+        basePath: `/notes`,
+        contentPath: `${__dirname}/src/notes`,
+        assetPath: `${__dirname}/src/images`,
+        mdx: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
