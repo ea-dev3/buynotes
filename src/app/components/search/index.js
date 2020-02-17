@@ -11,6 +11,13 @@ import { Root, HitsWrapper, PoweredBy } from "./styles"
 import Input from "./input"
 import * as hitComps from "./hitComps"
 
+// Material Ui
+import InputBase from "@material-ui/core/InputBase"
+import SearchIcon from "@material-ui/icons/Search"
+import Paper from "@material-ui/core/Paper"
+
+import "../search.css"
+
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
     res && res.nbHits > 0 ? children : `No results for '${state.query}'`

@@ -1,44 +1,118 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
-import Paper from "@material-ui/core/Paper"
 
 import NoteCard from "./components/NoteCard"
-import AccountingSvg from "../images/accounting.svg"
-import EconomicsSvg from "../images/economics.svg"
+import NotesSvg from "../images/notes.svg"
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query SITE_INDEX_QUERY {
-        allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
-          filter: { frontmatter: { published: { eq: true } } }
-        ) {
-          nodes {
-            id
-            excerpt(pruneLength: 250)
-            frontmatter {
-              title
+// Material Ui
+import Paper from "@material-ui/core/Paper"
+import { makeStyles } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+  paper: {
+    backgroundColor: "transparent",
+    flexWrap: "wrap",
+    padding: theme.spacing(0),
+    display: "flex",
+    justifyContent: "space-between",
+    alignContent: "center",
+  },
+  link: {
+    textDecoration: "none",
+    cursor: "pointer",
+  },
+}))
+
+const NotesPage = props => {
+  const classes = useStyles()
+  return (
+    <StaticQuery
+      query={graphql`
+        query NoteslistQuery {
+          allMdx(
+            sort: { fields: [frontmatter___date], order: DESC }
+            filter: { frontmatter: { published: { eq: true } } }
+            limit: 100
+          ) {
+            pageInfo {
+              currentPage
+              pageCount
             }
-            fields {
-              slug
+            nodes {
+              id
+              timeToRead
+              excerpt(pruneLength: 250)
+              frontmatter {
+                title
+              }
+              fields {
+                slug
+                readingTime {
+                  text
+                }
+              }
             }
           }
         }
-      }
-    `}
-    render={data => (
-      <>
-        {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
-          <NoteCard
-            key={id}
-            title={frontmatter.title}
-            chapters="14"
-            src={AccountingSvg}
-            link={fields.slug}
-          />
-        ))}
-      </>
-    )}
-  />
-)
+      `}
+      render={data => (
+        <>
+          {data.allMdx.nodes.map(
+            ({ id, excerpt, frontmatter, fields, timeToRead }) => (
+              <NoteCard
+                key={id}
+                title={frontmatter.title}
+                chapters={fields.readingTime.text}
+                src={NotesSvg}
+                link={fields.slug}
+              />
+            )
+          )}
+          {
+            <Paper elevation={0} square className={classes.paper}>
+              {!data.allMdx.pageInfo.currentPage === 1 && (
+                <Typography variant="h6" color="primary">
+                  <Link
+                    className={classes.link}
+                    to={
+                      data.allMdx.pageInfo.currentPage - 1 === 1
+                        ? "/app/"
+                        : `/app/${(
+                            data.allMdx.pageInfo.currentPage - 1
+                          ).toString()}`
+                    }
+                  >
+                    ← Prev
+                  </Link>
+                </Typography>
+              )}
+              <Typography variant="h6" color="primary">
+                {data.allMdx.pageInfo.currentPage}
+              </Typography>
+              {data.allMdx.pageInfo.currentPage === 1 && (
+                <Typography variant="h6" color="primary">
+                  <Link
+                    className={classes.link}
+                    to={`/app/${(
+                      data.allMdx.pageInfo.currentPage + 1
+                    ).toString()}`}
+                  >
+                    Next →
+                  </Link>
+                </Typography>
+              )}
+            </Paper>
+          }
+        </>
+      )}
+    />
+  )
+}
+
+export default NotesPage

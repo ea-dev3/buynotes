@@ -1,20 +1,19 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import AppSvg from "../images/app.svg"
 import AboutSvg from "../images/about.svg"
 import EarnCashSvg from "../images/cash.svg"
-import AdsSvg from "../images/sponser-ads.svg"
+import AdsSvg from "../images/advert.svg"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+
 import SEO from "../components/seo"
 
 // Material Ui
-import { makeStyles } from "@material-ui/core/styles"
-import Grid from "@material-ui/core/Grid"
 
+import Grid from "@material-ui/core/Grid"
 import CardButton from "../app/components/CardButton"
+import AdsCard from "../app/components/AdsCard"
 
 class IndexPage extends React.Component {
   state = { loading: false, msg: null }
@@ -53,40 +52,9 @@ class IndexPage extends React.Component {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <CardButton route="Ad" src={AdsSvg} link="/ads/" />
+              <AdsCard route="Ad" src={AdsSvg} link="/ads/" />
             </Grid>
           </Grid>
-          <div>
-            {/**
-            <div>
-              <Link to="/app/"> App</Link>{" "}
-              <img src={AppSvg} width="25%" height="25%" />
-            </div>
-            <div>
-              <Link to="/page-2/"> About</Link>{" "}
-              <img src={AboutSvg} width="200" height="200" />
-            </div>
-            <hr />
-            <p>
-            <a href="/.netlify/functions/token-hider">
-            <code>/.netlify/functions/token-hider</code>
-            </a>
-            * 
-            and it uses an API_SECRET environment variable that is hidden from
-            the frontend!
-            </p>
-            <button onClick={this.handleClick}>
-            {loading ? "Loading..." : "Call Lambda Function"}
-            </button>
-            <br />
-            
-            {msg ? (
-              <img src={msg[Math.floor(Math.random() * 10)]} alt="dog"></img>
-              ) : (
-                <pre>"Click the button and watch this!"</pre>
-                )}
-              */}
-          </div>
         </div>
       </Layout>
     )

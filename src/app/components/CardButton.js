@@ -4,27 +4,6 @@ import ButtonBase from "@material-ui/core/ButtonBase"
 import Typography from "@material-ui/core/Typography"
 import { Link } from "gatsby"
 
-import AppSvg from "../../images/app.svg"
-import AboutSvg from "../../images/about.svg"
-
-const images = [
-  {
-    url: "../../images/about.svg",
-    title: "Breakfast",
-    width: "40%",
-  },
-  {
-    url: "../../images//app.svg",
-    title: "Burgers",
-    width: "30%",
-  },
-  {
-    url: "../../images/login.svg",
-    title: "Camera",
-    width: "30%",
-  },
-]
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -49,7 +28,9 @@ const useStyles = makeStyles(theme => ({
         opacity: 0,
       },
       "& $imageTitle": {
-        border: "4px solid currentColor",
+        border: "1px solid currentColor",
+        backgroundColor: "#3f51b5",
+        width: "100%",
       },
     },
   },

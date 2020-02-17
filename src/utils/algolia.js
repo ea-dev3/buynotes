@@ -1,39 +1,29 @@
 const pageQuery = `{
-    pages: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/pages/" },
-        frontmatter: {purpose: {eq: "page"}}
-      }
-    ) {
-      edges {
-        node {
-          objectID: id
-          frontmatter {
-            title
-            
-          }
-          excerpt(pruneLength: 5000)
+    pages: allMdx(filter: {fileAbsolutePath: {regex: "/notes/"}}) {
+      nodes {
+        fields {
+          slug
         }
       }
     }
   }`
 const notesQuery = `{
-    notes: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/notes/" } }
-    ) {
-      edges {
-        node {
-          objectID: id
-          frontmatter {
-            title
-            
-            date(formatString: "MMM D, YYYY")
-            
-          }
-          excerpt(pruneLength: 5000)
-        }
+  allMdx(filter: {fileAbsolutePath: {regex: "/notes/"}}) {
+    nodes {
+      fields {
+        slug
+      }
+      excerpt
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        tag
+        title
+      }
+      headings {
+        value
       }
     }
+  }
   }`
 const flatten = arr =>
   arr.map(({ node: { frontmatter, ...rest } }) => ({

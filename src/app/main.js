@@ -2,10 +2,7 @@ import React from "react"
 
 import { useIdentityContext } from "react-netlify-identity-widget"
 
-import NoteCard from "./components/NoteCard"
 import NotesPage from "./notes"
-import AccountingSvg from "../images/accounting.svg"
-import EconomicsSvg from "../images/economics.svg"
 
 function Main() {
   const [data, setData] = React.useState(null)

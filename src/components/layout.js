@@ -11,6 +11,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 
 import "./layout.css"
+import "instantsearch.css/themes/reset.css"
+import "instantsearch.css/themes/algolia.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

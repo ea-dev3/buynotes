@@ -1,5 +1,6 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require(`path`)
+const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // Destructure the createPage function from the actions object
@@ -9,7 +10,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   )
   const result = await graphql(`
     query {
-      allMdx {
+      allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
         edges {
           node {
             id
@@ -24,18 +25,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (result.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
   }
-  // Create blog post pages.
+
   const posts = result.data.allMdx.edges
-  // you'll call `createPage` for each result
+
+  const postsPerPage = 10
+
+  const numPages = Math.ceil(posts.length / postsPerPage)
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/app/notes` : `/app/notes/${i + 1}`,
+      component: path.resolve("./src/app/notes.js"),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
   posts.forEach(({ node }, index) => {
     createPage({
-      // This is the slug you created before
-      // (or `node.frontmatter.slug`)
       path: node.fields.slug,
-      // This component will wrap our MDX content
+
       component: notesPostTemplate,
-      // You can use the values in this context in
-      // our page layout component
+
       context: { id: node.id },
     })
   })
@@ -43,12 +58,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
+
+  fmImagesToRelative(node)
   if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
-      value: `/notes${value}`,
+      value: `/app/notes${value}`,
     })
   }
 }

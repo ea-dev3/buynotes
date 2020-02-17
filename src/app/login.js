@@ -5,7 +5,6 @@ import LoginSvg from "../images/login.svg"
 
 // Material Ui
 import { makeStyles } from "@material-ui/core/styles"
-import Button from "@material-ui/core/Button"
 import NavigationIcon from "@material-ui/icons/Navigation"
 import Fab from "@material-ui/core/Fab"
 import Paper from "@material-ui/core/Paper"
@@ -14,7 +13,8 @@ import {
   IdentityModal,
   useIdentityContext,
 } from "react-netlify-identity-widget"
-import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
+// import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
+import "./login.css"
 
 const useStyles = makeStyles(theme => ({
   root: {

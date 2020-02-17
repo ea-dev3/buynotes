@@ -21,36 +21,27 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const myQuery = `{
-  allSitePage {
+const notesQuery = `{
+  allMarkdownRemark {
     edges {
       node {
-        # try to find a unique id for each node
-        # if this field is absent, it's going to
-        # be inserted by Algolia automatically
-        # and will be less simple to update etc.
-        objectID: id
-        component
-        path
-        componentChunkName
-        internal {
-          type
-          contentDigest
-          owner
+        excerpt
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          tag
+          title
         }
       }
     }
   }
-}`
+  }`
 
 const queries = [
   {
-    query: myQuery,
-    transformer: ({ data }) => data.allSitePage.edges.map(({ node }) => node), // optional
-    indexName: "index name to target", // overrides main index name, optional
-    settings: {
-      // optional, any index settings
-    },
+    query: notesQuery,
+    transformer: ({ data }) =>
+      data.allMarkdownRemark.edges.map(({ node }) => node), // optional
+    indexName: process.env.ALGOLIA_INDEX_NAME,
   },
 ]
 
@@ -101,6 +92,62 @@ module.exports = {
         name: `notes`,
       },
     },
+    `gatsby-plugin-slug`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-normalize-paths",
+            options: {
+              pathFields: ["image", "cover"],
+            },
+          },
+          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-relative-images`,
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 650,
+              tracedSVG: true,
+              loading: "lazy",
+              disableBgImageOnAlpha: true,
+              wrapperStyle: fluidResult =>
+                `flex:${_.round(fluidResult.aspectRatio, 2)};`,
+            },
+          },
+          `gatsby-remark-lazy-load`,
+          ,
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_self",
+              rel: "nofollow",
+            },
+          },
+          `gatsby-remark-reading-time`,
+          `gatsby-remark-sectionize`,
+
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of Contents",
+              tight: false,
+              fromHeading: 1,
+              toHeading: 6,
+            },
+          },
+          `gatsby-remark-extract-keywords`,
+        ],
+      },
+    },
 
     {
       resolve: "gatsby-plugin-flexsearch",
@@ -142,29 +189,6 @@ module.exports = {
       },
     },
 
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 650,
-              tracedSVG: true,
-              loading: "lazy",
-              disableBgImageOnAlpha: true,
-              wrapperStyle: fluidResult =>
-                `flex:${_.round(fluidResult.aspectRatio, 2)};`,
-            },
-          },
-        ],
-      },
-    },
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-netlify-cms`,

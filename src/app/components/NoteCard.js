@@ -7,15 +7,9 @@ import { makeStyles } from "@material-ui/core/styles"
 import ButtonBase from "@material-ui/core/ButtonBase"
 import Typography from "@material-ui/core/Typography"
 import Badge from "@material-ui/core/Badge"
-import ChapterIcon from "@material-ui/icons/Bookmark"
+import BookmarkIcon from "@material-ui/icons/Bookmark"
 
-import AppSvg from "../../images/app.svg"
-import AboutSvg from "../../images/about.svg"
-
-const defaultProps = {
-  color: "secondary",
-  children: <ChapterIcon />,
-}
+import { Paper } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,13 +29,14 @@ const useStyles = makeStyles(theme => ({
     "&:hover, &$focusVisible": {
       zIndex: 1,
       "& $imageBackdrop": {
-        opacity: 0.15,
+        opacity: 0.25,
       },
       "& $imageMarked": {
-        opacity: 0,
+        opacity: 0.5,
       },
       "& $imageTitle": {
-        border: "4px solid currentColor",
+        border: "1px solid currentColor",
+        backgroundColor: "#3f51b5",
       },
     },
   },
@@ -64,7 +59,7 @@ const useStyles = makeStyles(theme => ({
     top: 0,
     bottom: 0,
     backgroundSize: "cover",
-    backgroundPosition: "center 40%",
+    backgroundPosition: "center 0%",
   },
   imageBackdrop: {
     position: "absolute",
@@ -73,18 +68,19 @@ const useStyles = makeStyles(theme => ({
     top: 0,
     bottom: 0,
     backgroundColor: theme.palette.common.black,
-    opacity: 0.4,
+    opacity: 0.6,
     transition: theme.transitions.create("opacity"),
   },
   imageTitle: {
     position: "relative",
-    padding: `${theme.spacing(2)}px ${theme.spacing(1)}px ${theme.spacing(1) +
-      6}px`,
+    padding: `${theme.spacing(0)}px ${theme.spacing(1)}px ${theme.spacing(0) +
+      0}px`,
   },
   imageMarked: {
     height: 3,
     width: 18,
     backgroundColor: theme.palette.common.white,
+    color: "transparent",
     position: "absolute",
     bottom: -2,
     left: "calc(50% - 9px)",
@@ -93,9 +89,19 @@ const useStyles = makeStyles(theme => ({
   badge: {
     position: "absolute",
     left: 0,
-    right: 0,
-    top: 0,
+    right: "calc(4% - 5px)",
+    top: "calc(10% - 4px)",
     bottom: 0,
+  },
+  paper: {
+    backgroundColor: "transparent",
+    color: "white",
+    paddingTop: theme.spacing(0),
+    paddingRight: theme.spacing(0),
+    margin: theme.spacing(0),
+  },
+  imageSpan: {
+    color: "white",
   },
 }))
 
@@ -118,6 +124,7 @@ export default function NoteCard({ defaultProps, title, src, link, chapters }) {
           color="primary"
           className={classes.badge}
         />
+
         <span
           className={classes.imageSrc}
           style={{
@@ -126,22 +133,27 @@ export default function NoteCard({ defaultProps, title, src, link, chapters }) {
         />
         <span className={classes.imageBackdrop} />
         <span className={classes.imageButton}>
-          <Typography
-            component="span"
-            variant="subtitle1"
-            color="inherit"
-            className={classes.imageTitle}
-          >
+          <>
             <Link
               style={{
-                color: `white`,
+                color: `transparent`,
                 textDecoration: `none`,
               }}
               to={link}
             >
-              <span>{title}</span>
+              <Paper elevation={0} className={classes.paper} square>
+                <Typography
+                  component="span"
+                  variant="subtitle2"
+                  color="inherit"
+                  className={classes.imageTitle}
+                  color="primary"
+                >
+                  <span className={classes.imageSpan}>{title}</span>
+                </Typography>
+              </Paper>
             </Link>
-          </Typography>
+          </>
         </span>
       </ButtonBase>
     </>

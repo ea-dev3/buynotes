@@ -3,14 +3,17 @@ import { Link, navigate } from "gatsby"
 
 import { useIdentityContext } from "react-netlify-identity-widget"
 
+import Search from "../components/Search"
+
 // Material Ui
 
 import { makeStyles } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
 
 import Button from "@material-ui/core/Button"
 import ButtonGroup from "@material-ui/core/ButtonGroup"
-import HomeIcon from "@material-ui/icons/HomeOutlined"
-import ProfileIcon from "@material-ui/icons/PersonOutline"
+import HomeIcon from "@material-ui/icons/Home"
+import ProfileIcon from "@material-ui/icons/Person"
 import LoginIcon from "@material-ui/icons/ArrowDownwardOutlined"
 import LogOutIcon from "@material-ui/icons/ArrowUpwardOutlined"
 
@@ -48,31 +51,37 @@ export default () => {
 
   return (
     <>
+      {isLoggedIn ? <Search /> : ""}
+
       <div className={classes.root}>
         <ButtonGroup
           color="primary"
           aria-label="outlined primary button group"
-          variant="contained"
+          variant="text"
           className={classes.ButtonGroup}
           size="small"
         >
           <Button>
-            <Link className={classes.button} to="/app/">
-              <HomeIcon fontSize="inherit" />
-              Main
+            <Link className={classes.button} to="/app/" color="primary">
+              <HomeIcon fontSize="10" color="primary" />
+              <Typography variant="caption" color="primary">
+                Main
+              </Typography>
             </Link>
           </Button>
 
           <Button>
-            <Link className={classes.button} to="/app/profile">
-              <ProfileIcon fontSize="inherit" />
-              Profile
+            <Link className={classes.button} to="/app/profile" color="primary">
+              <ProfileIcon fontSize="10" color="primary" />
+              <Typography variant="caption" color="primary">
+                Profile
+              </Typography>
             </Link>
           </Button>
 
           <Button>
             {isLoggedIn ? (
-              <a
+              <Link
                 className={classes.button}
                 href="/"
                 onClick={async event => {
@@ -80,48 +89,20 @@ export default () => {
                   await logoutUser()
                   navigate(`/app/login`)
                 }}
+                color="primary"
               >
-                <LogOutIcon fontSize="inherit" />
-                Out
-              </a>
+                <LogOutIcon fontSize="10" color="primary" />
+                <Typography variant="caption" color="primary">
+                  Out
+                </Typography>
+              </Link>
             ) : (
               <Link className={classes.button} to="/app/login">
-                <LoginIcon fontSize="inherit" />
+                <LoginIcon fontSize="10" color="primary" />
               </Link>
             )}
           </Button>
         </ButtonGroup>
-
-        <div
-          style={
-            {
-              /*
-          display: "flex",
-          flex: "1",
-          justifyContent: "space-between",
-          borderBottom: "1px solid #d1c1e0",
-          backgroundColor: "aliceblue",
-        */
-            }
-          }
-        >
-          <span>{/*message*/}</span>
-        </div>
-        <>
-          {/** 
-          <span> </span>
-          
-          <Link to="/app/">Main</Link>
-          
-          {` `}
-
-          <Link to="/app/profile">Profile</Link>
-
-           * 
-           * 
-          
-           * */}
-        </>
       </div>
     </>
   )

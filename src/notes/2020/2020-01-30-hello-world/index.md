@@ -1,10 +1,10 @@
 ---
-title: Introduction to Accounting
+title: Accounting
 date: 2020-01-30
 published: true
 tag: accounting
 ---
 
-# h2 ACCOUNTING
+### Notes coming soon
 
-###### h6 Notes coming soon
+#### Table of Contents

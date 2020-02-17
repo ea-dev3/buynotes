@@ -7,17 +7,22 @@ import { makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
-import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/BookOutlined"
 
-import LogoSvg from "../images/logo.svg"
-import Search from "../app/components/Search"
-
-// import Search from "../app/components/search"
-
+import {
+  InstantSearch,
+  Index,
+  Hits,
+  connectStateResults,
+  SearchBox,
+} from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
-import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
+
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH_KEY
+)
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,7 +72,6 @@ const Header = ({ siteTitle }) => {
               </Link>
             </Typography>
           </Toolbar>
-          <Search />
         </AppBar>
       </div>
     </>

@@ -4,11 +4,8 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import Construction from "../images/construction.svg"
-
 // Material Ui
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/HomeWork"
+
 import Typography from "@material-ui/core/Typography"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
@@ -18,12 +15,7 @@ import StepLabel from "@material-ui/core/StepLabel"
 import StepContent from "@material-ui/core/StepContent"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
-import InputLabel from "@material-ui/core/InputLabel"
-import FormHelperText from "@material-ui/core/FormHelperText"
-import FormControl from "@material-ui/core/FormControl"
-import Select from "@material-ui/core/Select"
-import NativeSelect from "@material-ui/core/NativeSelect"
-import MenuItem from "@material-ui/core/MenuItem"
+
 import Grid from "@material-ui/core/Grid"
 
 // import { TextField } from "formik-material-ui"

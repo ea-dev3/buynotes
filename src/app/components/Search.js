@@ -4,56 +4,114 @@ import { Link } from "gatsby"
 import "./search.css"
 
 // Material Ui
-import InputBase from "@material-ui/core/InputBase"
-import TextField from "@material-ui/core/TextField"
-import SearchIcon from "@material-ui/icons/Search"
-import Paper from "@material-ui/core/Paper"
 
-// Search component
+import SearchIcon from "@material-ui/icons/Search"
+import CloseIcon from "@material-ui/icons/CloseOutlined"
+import Paper from "@material-ui/core/Paper"
+import Typography from "@material-ui/core/Typography"
+import CircularProgress from "@material-ui/core/CircularProgress"
+
+import { NotesHits } from "./Hits"
+
+// Search
+
+import {
+  InstantSearch,
+  Index,
+  Hits,
+  connectStateResults,
+  SearchBox,
+  HitsPerPage,
+  Highlight,
+  connectHits,
+  CurrentRefinements,
+  Configure,
+  ScrollTo,
+  PoweredBy,
+} from "react-instantsearch-dom"
+import algoliasearch from "algoliasearch/lite"
+
+const searchClient = algoliasearch(
+  process.env.ALGOLIA_APP_ID,
+  process.env.ALGOLIA_ADMIN_KEY
+)
+
 class Search extends Component {
   state = {
     query: "",
     results: [],
+    focus: false,
   }
 
   render() {
-    const ResultList = () => {
+    const ResultList = ({ hit }) => {
       if (this.state.results.length > 0) {
         return this.state.results.map((page, i) => (
-          <div className="item-search" key={i}>
-            <Link to={page.url} className="link">
-              <h4>{page.title}</h4>
+          <div key={i}>
+            <Link to={`/app/notes/${page.url}`} className="link">
+              <Typography variant="subtitle1" className="search-txt">
+                {page.title}
+              </Typography>
+
+              <NotesHits />
             </Link>
           </div>
         ))
       } else if (this.state.query.length > 2) {
-        return "No results for " + this.state.query
+        return (
+          <Typography variant="caption" color="primary">
+            No notes with title {this.state.query}
+          </Typography>
+        )
       } else if (
         this.state.results.length === 0 &&
         this.state.query.length > 0
       ) {
-        return "Please insert at least 3 characters"
+        return (
+          <>
+            <Typography variant="caption" color="primary">
+              Please insert at least 3 characters
+            </Typography>
+          </>
+        )
       } else {
         return ""
       }
     }
 
     return (
-      <div className={this.props.classNames}>
-        <Paper variant="outlined" square elevation={6}>
-          <SearchIcon fontSize="inherit" className="searchIcon" />
-          <InputBase
-            className="search__input"
-            type="search"
-            onChange={this.search}
-            placeholder={"Search"}
-            color="primary"
-            margin="dense"
-          />
-          <div className="search__list">
+      <div>
+        <InstantSearch indexName="prod_NOTES" searchClient={searchClient}>
+          <Configure hitsPerPage={1} distinct analytics={false} />
+          <Paper elevation={2} className="container">
+            <SearchBox
+              onChange={this.search}
+              autoFocus
+              defaultRefinement=""
+              searchAsYouType={true}
+              showLoadingIndicator
+              submit={<SearchIcon fontSize="inherit" color="primary" />}
+              reset={<CloseIcon fontSize="inherit" color="secondary" />}
+              loadingIndicator={
+                <CircularProgress fontSize="inherit" size={20} />
+              }
+              onSubmit={event => {
+                event.preventDefault()
+                console.log(event.currentTarget)
+              }}
+              onReset={event => {
+                console.log(event.currentTarget)
+              }}
+              translations={{
+                submitTitle: "Submit your search query.",
+                resetTitle: "Clear your search query.",
+                placeholder: "Search Notes Library ",
+              }}
+              className="search"
+            />
             <ResultList />
-          </div>
-        </Paper>
+          </Paper>
+        </InstantSearch>
       </div>
     )
   }

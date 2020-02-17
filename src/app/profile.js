@@ -5,10 +5,9 @@ import Badge from "@material-ui/core/Badge"
 import Avatar from "@material-ui/core/Avatar"
 import { makeStyles, withStyles } from "@material-ui/core/styles"
 import Paper from "@material-ui/core/Paper"
-import Chip from "@material-ui/core/Chip"
-import SchoolIcon from "@material-ui/icons/SchoolOutlined"
-
-import SchoolSvg from "../images/school.svg"
+import Typography from "@material-ui/core/Typography"
+import SchoolSvg from "../images/qoutes.svg"
+import LeftQuoteIcon from "@material-ui/icons/FormatQuote"
 
 import { useIdentityContext } from "react-netlify-identity-widget"
 
@@ -57,6 +56,17 @@ const useStyles = makeStyles(theme => ({
   chip: {
     margin: theme.spacing(0.5),
   },
+  paper: {
+    backgroundColor: "transparent",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    padding: theme.spacing(1),
+  },
+  qoute: {
+    padding: theme.spacing(1),
+  },
 }))
 
 const Profile = () => {
@@ -83,6 +93,19 @@ const Profile = () => {
           </div>
           <h6> {user.user_metadata && user.user_metadata.full_name}</h6>
         </div>
+        <Paper elevation={0} square className={classes.paper}>
+          <LeftQuoteIcon color="primary" />
+          <Typography variant="caption" className={classes.qoute}>
+            The important thing is to not stop questioning. Curiosity has its
+            own reason for existing.
+          </Typography>
+          <LeftQuoteIcon color="primary" />
+        </Paper>
+        <Paper elevation={0} square className={classes.paper}>
+          <Typography variant="caption" color="primary">
+            - Albert Einstein -
+          </Typography>
+        </Paper>
         <img src={SchoolSvg} height="50%" width="50%"></img>
       </Paper>
     </>

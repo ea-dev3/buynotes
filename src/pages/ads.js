@@ -7,8 +7,7 @@ import SEO from "../components/seo"
 import AdsSvg from "../images/ads.svg"
 
 // Material Ui
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/HomeWork"
+
 import Typography from "@material-ui/core/Typography"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
@@ -31,8 +30,9 @@ export default function Ads() {
           <Typography variant="caption" color="primary">
             Sponsered ad
           </Typography>
-
-          <img src={AdsSvg} alt="about" />
+          <Link>
+            <img src={AdsSvg} alt="about" />
+          </Link>
         </Paper>
       </Layout>
     </>
