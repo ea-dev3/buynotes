@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import ButtonBase from "@material-ui/core/ButtonBase"
 import Typography from "@material-ui/core/Typography"
 import Badge from "@material-ui/core/Badge"
-import BookmarkIcon from "@material-ui/icons/Bookmark"
+import BookmarkIcon from "@material-ui/icons/BookOutlined"
 
 import { Paper } from "@material-ui/core"
 
@@ -73,7 +73,7 @@ const useStyles = makeStyles(theme => ({
   },
   imageTitle: {
     position: "relative",
-    padding: `${theme.spacing(0)}px ${theme.spacing(1)}px ${theme.spacing(0) +
+    padding: `${theme.spacing(0)}px ${theme.spacing(0)}px ${theme.spacing(0) +
       0}px`,
   },
   imageMarked: {
@@ -89,7 +89,7 @@ const useStyles = makeStyles(theme => ({
   badge: {
     position: "absolute",
     left: 0,
-    right: "calc(4% - 5px)",
+    right: "calc(50% - 5px)",
     top: "calc(10% - 4px)",
     bottom: 0,
   },
@@ -97,11 +97,18 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "transparent",
     color: "white",
     paddingTop: theme.spacing(0),
-    paddingRight: theme.spacing(0),
-    margin: theme.spacing(0),
+    paddingLeft: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    display: "flex",
   },
   imageSpan: {
     color: "white",
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
+  },
+  bookIcon: {
+    paddingRight: theme.spacing(0),
+    marginBottom: theme.spacing(0),
   },
 }))
 
@@ -142,6 +149,11 @@ export default function NoteCard({ defaultProps, title, src, link, chapters }) {
               to={link}
             >
               <Paper elevation={0} className={classes.paper} square>
+                <BookmarkIcon
+                  fontSize="small"
+                  color="primary"
+                  className={classes.bookIcon}
+                />
                 <Typography
                   component="span"
                   variant="subtitle2"

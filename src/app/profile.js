@@ -8,12 +8,13 @@ import Paper from "@material-ui/core/Paper"
 import Typography from "@material-ui/core/Typography"
 import SchoolSvg from "../images/qoutes.svg"
 import LeftQuoteIcon from "@material-ui/icons/FormatQuote"
+import AvatarIcon from "@material-ui/icons/Person"
 
 import { useIdentityContext } from "react-netlify-identity-widget"
 
 const StyledBadge = withStyles(theme => ({
   badge: {
-    backgroundColor: "#44b700",
+    backgroundColor: "#3f51b5",
     color: "#44b700",
     boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
     "&::after": {
@@ -67,6 +68,9 @@ const useStyles = makeStyles(theme => ({
   qoute: {
     padding: theme.spacing(1),
   },
+  name: {
+    color: "#3f51b5",
+  },
 }))
 
 const Profile = () => {
@@ -88,10 +92,15 @@ const Profile = () => {
               <Avatar
                 alt={user.user_metadata && user.user_metadata.full_name}
                 src="../images/gatsby-astronaut.png"
-              />
+              >
+                <AvatarIcon />
+              </Avatar>
             </StyledBadge>
           </div>
-          <h6> {user.user_metadata && user.user_metadata.full_name}</h6>
+          <h6 className={classes.name}>
+            {" "}
+            {user.user_metadata && user.user_metadata.full_name}
+          </h6>
         </div>
         <Paper elevation={0} square className={classes.paper}>
           <LeftQuoteIcon color="primary" />

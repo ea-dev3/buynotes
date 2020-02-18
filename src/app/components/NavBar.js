@@ -60,6 +60,7 @@ export default () => {
           variant="text"
           className={classes.ButtonGroup}
           size="small"
+          fullWidth="true"
         >
           <Button>
             <Link className={classes.button} to="/app/" color="primary">

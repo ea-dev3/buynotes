@@ -5,8 +5,6 @@ published: true
 tag: macroeconomics
 ---
 
-#### Table of Contents
-
 ### 1. INTRODUCTION
 
 **_Macroeconomics_**

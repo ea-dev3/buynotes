@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 
 function getSteps() {
   return [
-    "Fill Registration Form",
+    "Fill registration Form",
     "Upload Document",
     "Wait for payment upon approval ",
   ]
@@ -148,9 +148,6 @@ export default function EarnCash() {
     <Layout>
       <SEO title="Earn cash" />
       <Paper className={classes.root}>
-        <Typography variant="h6" color="primary">
-          Earn Cash Fast and Easy Per Notes
-        </Typography>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => (
             <Step key={label}>

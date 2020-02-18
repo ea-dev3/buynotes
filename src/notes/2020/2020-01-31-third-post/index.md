@@ -5,8 +5,6 @@ published: true
 tag: microecominics
 ---
 
-#### Table of Content
-
 ### INTRODUCTION
 
 This course provides the student with an introduction to the basic elements of modern

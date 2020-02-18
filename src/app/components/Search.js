@@ -52,16 +52,17 @@ class Search extends Component {
               <Typography variant="subtitle1" className="search-txt">
                 {page.title}
               </Typography>
-
-              <NotesHits />
             </Link>
           </div>
         ))
       } else if (this.state.query.length > 2) {
         return (
-          <Typography variant="caption" color="primary">
-            No notes with title {this.state.query}
-          </Typography>
+          <>
+            <Typography variant="caption" color="primary">
+              No notes with title {this.state.query}
+            </Typography>
+            <NotesHits />
+          </>
         )
       } else if (
         this.state.results.length === 0 &&
@@ -72,6 +73,8 @@ class Search extends Component {
             <Typography variant="caption" color="primary">
               Please insert at least 3 characters
             </Typography>
+            <br />
+            <PoweredBy />
           </>
         )
       } else {

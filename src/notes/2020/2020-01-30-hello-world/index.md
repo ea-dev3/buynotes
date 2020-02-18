@@ -6,5 +6,3 @@ tag: accounting
 ---
 
 ### Notes coming soon
-
-#### Table of Contents

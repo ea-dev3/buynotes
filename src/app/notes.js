@@ -8,6 +8,8 @@ import NotesSvg from "../images/notes.svg"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
+import Pagination from "@material-ui/lab/Pagination"
+import PaginationItem from "@material-ui/lab/PaginationItem"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,7 +38,7 @@ const NotesPage = props => {
       query={graphql`
         query NoteslistQuery {
           allMdx(
-            sort: { fields: [frontmatter___date], order: DESC }
+            sort: { fields: [frontmatter___title], order: ASC }
             filter: { frontmatter: { published: { eq: true } } }
             limit: 100
           ) {
@@ -47,7 +49,7 @@ const NotesPage = props => {
             nodes {
               id
               timeToRead
-              excerpt(pruneLength: 250)
+              excerpt
               frontmatter {
                 title
               }
@@ -74,6 +76,30 @@ const NotesPage = props => {
               />
             )
           )}
+          {/*
+            <Paper elevation={0} square className={classes.paper}>
+              <Pagination
+                count={5}
+                color="primary"
+                variant="outlined"
+                shape="rounded"
+                defaultPage={1}
+                renderItem={data => (
+                  <PaginationItem
+                    component={Link}
+                    to={
+                      data.allMdx.pageInfo.currentPage - 1 === 1
+                        ? "/app/"
+                        : `/app/${(
+                            data.allMdx.pageInfo.currentPage - 1
+                          ).toString()}`
+                    }
+                    {...data}
+                  />
+                )}
+              />
+            </Paper>
+                  */}
           {
             <Paper elevation={0} square className={classes.paper}>
               {!data.allMdx.pageInfo.currentPage === 1 && (
