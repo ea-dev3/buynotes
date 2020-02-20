@@ -1,4 +1,4 @@
-# Foco
+# Buy Notes
 
 [![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
 [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
@@ -6,13 +6,13 @@
 
 <h1 align="center">
   <br>
-  <img src="https://github.com/akashnimare/foco/blob/master/app/img/foco.png" alt="Foco" width="160">
+  <img src="https://github.com/akashnimare/foco/blob/master/app/img/foco.png" alt="Buy Notes" width="160">
 </h1>
 
-<h4 align="center">A desktop menubar app based on <a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
+<h4 align="center">A desktop menubar app based on <a href="https://buynotes.co" target="_blank">Electron</a>.</h4>
 
-Foco is a cross-platform desktop app :computer: which runs in menubar.
-Foco boosts your productivity :rocket: by creating perfect productive environment.
+Buy Notes is a cross-platform desktop app :computer: which runs in menubar.
+Buy Notes boosts your productivity :rocket: by creating perfect productive environment.
 It has the best sounds for getting work done :raised_hands:.
 
 # Demo
@@ -30,7 +30,7 @@ It has the best sounds for getting work done :raised_hands:.
 
 ### OS X
 
-1. Download [Foco-osx.x.x.x.dmg][fr] or [Foco-osx.x.x.x.zip][fr]
+1. Download [Buy Notes-osx.x.x.x.dmg][fr] or [Buy Notes-osx.x.x.x.zip][fr]
 2. Open or unzip the file and drag the app into the `Applications` folder
 3. Done!
 
@@ -42,8 +42,8 @@ coming soon :stuck_out_tongue_closed_eyes:
 
 _Ubuntu, Debian 8+ (deb package):_
 
-1. Download [Foco-linux.x.x.x.deb][fr]
-2. Double click and install, or run `dpkg -i Foco-linux.x.x.x.deb` in the terminal
+1. Download [Buy Notes-linux.x.x.x.deb][fr]
+2. Double click and install, or run `dpkg -i Buy Notes-linux.x.x.x.deb` in the terminal
 3. Start the app with your app launcher or by running `foco` in a terminal
 
 ### For developers

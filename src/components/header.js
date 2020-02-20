@@ -10,20 +10,6 @@ import Typography from "@material-ui/core/Typography"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/BookOutlined"
 
-import {
-  InstantSearch,
-  Index,
-  Hits,
-  connectStateResults,
-  SearchBox,
-} from "react-instantsearch-dom"
-import algoliasearch from "algoliasearch/lite"
-
-const searchClient = algoliasearch(
-  process.env.GATSBY_ALGOLIA_APP_ID,
-  process.env.GATSBY_ALGOLIA_SEARCH_KEY
-)
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,

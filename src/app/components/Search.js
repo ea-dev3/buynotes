@@ -17,16 +17,8 @@ import { NotesHits } from "./Hits"
 
 import {
   InstantSearch,
-  Index,
-  Hits,
-  connectStateResults,
   SearchBox,
-  HitsPerPage,
-  Highlight,
-  connectHits,
-  CurrentRefinements,
   Configure,
-  ScrollTo,
   PoweredBy,
 } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"

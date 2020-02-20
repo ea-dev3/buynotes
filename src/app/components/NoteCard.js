@@ -157,7 +157,6 @@ export default function NoteCard({ defaultProps, title, src, link, chapters }) {
                 <Typography
                   component="span"
                   variant="subtitle2"
-                  color="inherit"
                   className={classes.imageTitle}
                   color="primary"
                 >

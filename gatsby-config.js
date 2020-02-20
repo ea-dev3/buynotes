@@ -64,13 +64,7 @@ module.exports = {
         url: netlifyInstance,
       },
     },
-    {
-      resolve: "gatsby-theme-netlify-cms",
-      options: {
-        publicPath: "admin",
-        htmlTitle: "Notes Manager",
-      },
-    },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {

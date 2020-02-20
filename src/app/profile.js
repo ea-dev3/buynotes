@@ -115,7 +115,7 @@ const Profile = () => {
             - Albert Einstein -
           </Typography>
         </Paper>
-        <img src={SchoolSvg} height="50%" width="50%"></img>
+        <img src={SchoolSvg} height="50%" width="50%" alt="school svg"></img>
       </Paper>
     </>
   )

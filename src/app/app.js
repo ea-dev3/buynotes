@@ -7,6 +7,7 @@ import Notes from "./notes"
 import Main from "./main"
 import PrivateRoute from "./components/PrivateRoute"
 import Login from "./login"
+import Questions from "./questions"
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Router>
           {/** change this */}
           <PrivateRoute path="/app/profile" component={Profile} />
+          <PrivateRoute path="/app/questions" component={Questions} />
           <PrivateRoute path="/app/notes" component={Notes} />
           <PublicRoute path="/app">
             <PrivateRoute path="/" component={Main} />

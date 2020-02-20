@@ -1,7 +1,7 @@
 ---
 title: Microecominics
 date: 2020-01-31
-published: true
+published: false
 tag: microecominics
 ---
 

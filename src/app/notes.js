@@ -8,8 +8,6 @@ import NotesSvg from "../images/notes.svg"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
-import Pagination from "@material-ui/lab/Pagination"
-import PaginationItem from "@material-ui/lab/PaginationItem"
 
 const useStyles = makeStyles(theme => ({
   root: {

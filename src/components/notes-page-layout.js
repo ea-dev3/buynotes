@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import ContentTable from "../app/components/ContentTable"
@@ -7,11 +7,7 @@ import ContentTable from "../app/components/ContentTable"
 // Material Ui
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
-import Chip from "@material-ui/core/Chip"
-import Typography from "@material-ui/core/Typography"
 import BookmarkIcon from "@material-ui/icons/Book"
-
-import Header from "./header"
 import Navbar from "../app/components/NavBar"
 import Layout from "../components/layout"
 

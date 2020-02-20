@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -17,8 +16,6 @@ import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 
 import Grid from "@material-ui/core/Grid"
-
-// import { TextField } from "formik-material-ui"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -44,7 +41,8 @@ const useStyles = makeStyles(theme => ({
 function getSteps() {
   return [
     "Fill registration Form",
-    "Upload Document",
+    "Fill course title and Unit title",
+    "Upload document ",
     "Wait for payment upon approval ",
   ]
 }
@@ -54,7 +52,12 @@ function getStepContent(step) {
     case 0:
       return (
         <>
-          <form>
+          <form
+            name="Contact Form"
+            method="post"
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+          >
             <br />
             <Grid container>
               <Grid item lg={6}>
@@ -63,6 +66,7 @@ function getStepContent(step) {
                   label="Full Name "
                   variant="standard"
                   type="input"
+                  name="Full Name"
                 />
               </Grid>
               <br />
@@ -73,6 +77,7 @@ function getStepContent(step) {
                   label="Email"
                   variant="standard"
                   type="email"
+                  name="Email"
                 />
               </Grid>
               <br />
@@ -83,31 +88,11 @@ function getStepContent(step) {
                   label="Phone"
                   variant="standard"
                   type="tel"
+                  name="Phone"
                 />
               </Grid>
               <br />
-              <br />
-              <Grid item lg={6}>
-                <TextField
-                  id="filled-unit-title"
-                  label="Unit Title"
-                  variant="standard"
-                  type="text"
-                />
-              </Grid>
-              <br />
-              <br />
-              <Grid item lg={6}>
-                <TextField
-                  id="filled-chapter-title"
-                  label="Chapter Title"
-                  variant="standard"
-                  type="text"
-                />
-              </Grid>
             </Grid>
-            <br />
-            <br />
           </form>
         </>
       )
@@ -115,12 +100,54 @@ function getStepContent(step) {
     case 1:
       return (
         <>
-          <form>
-            <TextField variant="standard" type="file"></TextField>
+          <form
+            name="Unit Submision Form"
+            method="post"
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+            action="/earn-cash"
+          >
+            <input type="hidden" name="bot-field" />
+            <Grid container>
+              <Grid item lg={6}>
+                <TextField
+                  id="filled-unit-title"
+                  label="Course title"
+                  variant="standard"
+                  type="text"
+                  name="Course Title"
+                />
+              </Grid>
+              <br />
+              <br />
+              <Grid item lg={6}>
+                <TextField
+                  id="filled-chapter-title"
+                  label="Unit title"
+                  variant="standard"
+                  type="text"
+                  name="Unit Title"
+                />
+              </Grid>
+            </Grid>
           </form>
         </>
       )
     case 2:
+      return (
+        <>
+          <form
+            name="Unit Submision Form"
+            method="post"
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+            action="/earn-cash"
+          >
+            <TextField variant="standard" type="file" name="notes"></TextField>
+          </form>
+        </>
+      )
+    case 3:
       return `Payment will be recieved via Mpesa or PayPal after notes are approved and used in the app. `
     default:
       return "Unknown step"
@@ -168,6 +195,7 @@ export default function EarnCash() {
                       color="primary"
                       onClick={handleNext}
                       className={classes.button}
+                      type="submit"
                     >
                       {activeStep === steps.length - 1 ? "Finish" : "Next"}
                     </Button>

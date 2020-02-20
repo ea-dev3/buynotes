@@ -16,6 +16,7 @@ import HomeIcon from "@material-ui/icons/Home"
 import ProfileIcon from "@material-ui/icons/Person"
 import LoginIcon from "@material-ui/icons/ArrowDownwardOutlined"
 import LogOutIcon from "@material-ui/icons/ArrowUpwardOutlined"
+import QuestionsIcon from "@material-ui/icons/QuestionAnswer"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,6 +68,19 @@ export default () => {
               <HomeIcon fontSize="10" color="primary" />
               <Typography variant="caption" color="primary">
                 Main
+              </Typography>
+            </Link>
+          </Button>
+
+          <Button>
+            <Link
+              className={classes.button}
+              to="/app/questions"
+              color="primary"
+            >
+              <QuestionsIcon fontSize="10" color="primary" />
+              <Typography variant="caption" color="primary">
+                Q n A
               </Typography>
             </Link>
           </Button>

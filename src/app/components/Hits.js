@@ -1,13 +1,5 @@
 import React from "react"
-import {
-  connectHits,
-  Highlight,
-  CurrentRefinements,
-  RefinementList,
-  Snippet,
-  Configure,
-  PoweredBy,
-} from "react-instantsearch-dom"
+import { connectHits, Highlight } from "react-instantsearch-dom"
 import BookIcon from "@material-ui/icons/BookOutlined"
 
 // Material Ui
