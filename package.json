@@ -74,7 +74,7 @@
     "react-netlify-identity-widget": "^0.2.5",
     "react-spring": "^8.0.27",
     "react-use-flexsearch": "^0.1.1",
-    "sharp": "^0.24.0",
+    "sharp": "^0.30.5",
     "theme-ui": "^0.3.1"
   },
   "keywords": [
