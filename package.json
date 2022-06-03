@@ -33,7 +33,7 @@
     "gatsby-plugin-local-search": "^1.1.0",
     "gatsby-plugin-manifest": "^2.2.15",
     "gatsby-plugin-material-ui": "^2.1.6",
-    "gatsby-plugin-mdx": "^1.0.67",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-netlify-cms": "^4.1.37",
     "gatsby-plugin-netlify-identity": "^0.0.3",
     "gatsby-plugin-offline": "^2.2.10",
