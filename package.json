@@ -59,7 +59,7 @@
     "gatsby-theme-material-ui": "^1.0.8",
     "gatsby-theme-medium": "^0.0.1",
     "gatsby-theme-netlify-cms": "^1.0.3",
-    "gatsby-transformer-remark": "^2.6.51",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.2.13",
     "instantsearch.css": "^7.4.2",
     "lazysizes": "^5.2.0",
